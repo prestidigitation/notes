@@ -6,9 +6,10 @@ Though such situations are usually temporary, a decent workaround is to downgrad
 
 By default, Pacman, the Arch Linux package manager, stores a local cache of downloaded packages in `/var/cache/pacman/pkg`. This is usually sufficient for locating an older, working version of the linux kernel.
 
-List all package files in long listing format, filter for file names containing "linux", and then filter for file names that don't contain "sig":
 ```zsh
 $ ls -al /var/cache/pacman/pkg | grep linux | grep -v sig
+
+# List all package file names in long listing format, then filter for file names containing "linux", and finally filter for file names that don't contain "sig".
 ```
 
 In case there isn't a working version of the linux kernel in local cache, navigate to the [Arch Linux archives](https://archive.archlinux.org/packages/l/linux/) and download one.
@@ -17,6 +18,7 @@ Once you have obtained a suitable target version, use pacman to downgrade the li
 
 ```zsh
 $ sudo pacman -U linux-5.14.16.arch1-1-x86_64.pkg.tar.zst
+
 # Though it's technically a downgrade in this case, pacman still uses the upgrade flag.
 ```
 
@@ -29,12 +31,12 @@ If you don't mind manually ignoring the linux package every time that you update
 ```bash
 $ sudo pacman -Syu --ignore linux
 ```
-or
+Or if you're using `yay`:
 ```bash
 $ yay -Syu --ignore linux
 ```
 
-If you desire a more permanent or elegant solution, then you might want to configure `pacman` to automatically ignore it. Edit /etc/pacman.conf as a superuser:
+If you desire a more permanent or elegant solution, then you might want to configure `pacman` to automatically ignore it. Edit `/etc/pacman.conf` as a superuser:
 ```zsh
 $ sudo nano /etc/pacman.conf
 ```
