@@ -4,7 +4,7 @@ Occasionally a linux kernel update will break the functionality of something on 
 
 Though such situations are usually temporary, a decent workaround is to downgrade the linux kernel to an older version.
 
-By default, Pacman, the Arch Linux package manager, stores a local cache of downloaded packages in `/var/cache/pacman/pkg`. This is usually sufficient for locating an older, working version of the linux kernel.
+By default, `pacman`, the Arch Linux package manager, stores a local cache of downloaded packages in `/var/cache/pacman/pkg`. This is usually sufficient for locating an older, working version of the linux kernel.
 
 ```zsh
 $ ls -al /var/cache/pacman/pkg | grep linux | grep -v sig
@@ -14,7 +14,12 @@ $ ls -al /var/cache/pacman/pkg | grep linux | grep -v sig
 
 In case there isn't a working version of the linux kernel in local cache, navigate to the [Arch Linux archives](https://archive.archlinux.org/packages/l/linux/) and download one.
 
-Once you have obtained a suitable target version, use pacman to downgrade the linux package:
+To display the current kernel version:
+```zsh
+$ uname -r
+```
+
+Once you have obtained a suitable target version, use `pacman` to downgrade the linux package:
 
 ```zsh
 $ sudo pacman -U linux-5.14.16.arch1-1-x86_64.pkg.tar.zst
