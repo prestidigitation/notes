@@ -55,6 +55,15 @@ git switch -c feature-branch
 git switch --create feature-branch
 ```
 
+`git restore`
+```zsh
+# Restore a file to its last committed state:
+git restore myfile.txt
+
+# Restoring from a specific commit:
+git restore --source==<commit_hash> <filename>
+```
+
 <!-- `git checkout`
 ```zsh
 ``` -->
