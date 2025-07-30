@@ -62,6 +62,9 @@ git restore myfile.txt
 
 # Restoring from a specific commit:
 git restore --source==<commit_hash> <filename>
+
+# Discard all uncommitted changes in working directory, restoring to last committed state:
+git restore .
 ```
 
 <!-- `git checkout`
