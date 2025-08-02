@@ -24,3 +24,8 @@ case e1 of
   True  -> e2
   False -> e3
 ```
+
+### How to manage and "track" values in Haskell
+__WORK IN PROGRESS__
+
+Passing the accumulator as an argument in the recursive function.
