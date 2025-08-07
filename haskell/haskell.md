@@ -29,3 +29,15 @@ case e1 of
 __WORK IN PROGRESS__
 
 Passing the accumulator as an argument in the recursive function.
+
+## Function composition and point-free style
+Point-free style is when explicit arguments are omitted.
+```haskell
+-- A function with explicit argument 'x'
+myEven :: Int -> Bool
+myEven x = not (odd x)
+
+-- The same function rewritten with point-free style
+myEven :: Int -> Bool
+myEven = not . odd
+```
