@@ -41,3 +41,30 @@ myEven x = not (odd x)
 myEven :: Int -> Bool
 myEven = not . odd
 ```
+Function composition pipelines the output of one function to the input of another.
+`not . odd` is equivalent to `\x -> not (odd x)`.
+
+### MISC
+When possible, reuse supplied function arguments, such as numbers representing an index. Providing a case where the index is 0 is more clean than defining a helper function.
+```haskell
+-- Example from Haskell MOOC.
+--
+-- Ex 4: safe list indexing. Define a function indexDefault so that
+--   indexDefault xs i def
+-- gets the element at index i in the list xs. If i is not a valid
+-- index, def is returned.
+--
+-- Use only pattern matching and recursion (and the list constructors : and [])
+--
+-- Examples:
+--   indexDefault [True] 1 False         ==>  False
+--   indexDefault [10,20,30] 0 7         ==>  10
+--   indexDefault [10,20,30] 2 7         ==>  30
+--   indexDefault [10,20,30] 3 7         ==>  7
+--   indexDefault ["a","b","c"] (-1) "d" ==> "d"
+
+indexDefault :: [a] -> Int -> a -> a
+indexDefault []     _ def = def
+indexDefault (x:xs) 0 def = x
+indexDefault (x:xs) i def = indexDefault xs (i - 1) def
+```
