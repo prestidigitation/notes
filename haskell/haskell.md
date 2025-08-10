@@ -68,3 +68,5 @@ indexDefault []     _ def = def
 indexDefault (x:xs) 0 def = x
 indexDefault (x:xs) i def = indexDefault xs (i - 1) def
 ```
+
+Don't add explicit True/False return values when there is already a boolean expression in the function!
