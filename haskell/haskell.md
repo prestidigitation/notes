@@ -44,6 +44,21 @@ myEven = not . odd
 Function composition pipelines the output of one function to the input of another.
 `not . odd` is equivalent to `\x -> not (odd x)`.
 
+## Algebraic Data Types
+Types are defined this way
+```haskell
+data TypeName = ConstructorName FieldType FieldType2 | AnotherConstructor FieldType3 | OneMoreCons
+```
+... or this way if using type variables
+```haskell
+data TypeName variable = Cons1 variable Type 1 | Cons2 Type2 variable
+```
+Data type rules:
+* They can have one or more constructors.
+* Each constructor can have zero or more fields.
+* Constructors start with upper case, type variables with lower case.
+* Values are handled with pattern matching.
+
 ### MISC
 When possible, reuse supplied function arguments, such as numbers representing an index. Providing a case where the index is 0 is more clean than defining a helper function.
 ```haskell
