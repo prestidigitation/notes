@@ -84,4 +84,22 @@ indexDefault (x:xs) 0 def = x
 indexDefault (x:xs) i def = indexDefault xs (i - 1) def
 ```
 
+---
+
 Don't add explicit True/False return values when there is already a boolean expression in the function!
+
+---
+
+Appending an element to the end of a list using `++` in a recursive function can lead to poor performance. This is because lists in Haskell 
+are immutable, so the entire list must be traversed and copied in order to create a list with the appended item at the end.
+
+The most efficient way to build a list in a recursive function is to use prepend elements using the `(:)` operator, and then reversing the 
+list at the end. Prepending to linked lists is O(1) time complexity.
+
+```haskell
+buildList :: Int -> [Int]
+buidList n = reverse (go n [])
+  where
+    go 0 acc = acc
+    go k acc = go (k - 1) (k : acc)
+```
