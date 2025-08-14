@@ -103,3 +103,37 @@ buidList n = reverse (go n [])
     go 0 acc = acc
     go k acc = go (k - 1) (k : acc)
 ```
+
+## Working with binary
+```haskell
+data Bin = End | O Bin | I Bin
+  deriving (Show, Eq)
+
+-- This function increments a binary number by one.
+inc :: Bin -> Bin
+inc End   = I End
+inc (O b) = I b
+inc (I b) = O (inc b)
+
+prettyPrint :: Bin -> String
+prettyPrint n = go n ""
+  where
+    go End acc = acc
+    go (O b) acc = go b ('0' : acc)
+    go (I b) acc = go b ('1' : acc)
+
+fromBin :: Bin -> Int
+fromBin End = 0
+fromBin (O b) = 2 * fromBin b
+fromBin (I b) = 2 * fromBin b + 1
+
+toBin :: Int -> Bin
+toBin 0 = O End
+toBin 1 = I End
+toBin n
+  | remainder == 0 = O (toBin halved)
+  | otherwise      = I (toBin halved)
+  where
+    halved = n `div` 2
+    remainder = n `mod` 2
+```
