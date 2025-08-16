@@ -137,3 +137,15 @@ toBin n
     halved = n `div` 2
     remainder = n `mod` 2
 ```
+
+---
+
+`all` checks whether all elements of a structure satisfy the predicate.
+```haskell 
+# Examples
+>>> all (> 3) []
+True
+
+>>> all (> 3) [1,2,3,4,5]
+False
+```
