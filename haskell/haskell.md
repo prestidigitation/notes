@@ -149,3 +149,14 @@ True
 >>> all (> 3) [1,2,3,4,5]
 False
 ```
+
+---
+
+`zipWith` combines two lists into one list by applying a binary function to each pair of elements.
+```haskell
+Input: zipWith (+) [1,2,3] [3,2,1]
+Output: [4,4,4]
+
+Input: zipWith (\x y -> 2*x + y) [1..4] [5..8]
+Output: [7,10,13,16]
+```
