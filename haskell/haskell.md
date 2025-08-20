@@ -160,3 +160,9 @@ Output: [4,4,4]
 Input: zipWith (\x y -> 2*x + y) [1..4] [5..8]
 Output: [7,10,13,16]
 ```
+
+---
+
+`deriving` allows you to automatically generate class instances, such as `Read` and `Show`. The standard behavior for 
+`Read`, `Show`, and `Eq` are generally what you want, but `Ord` might require some manual implementation. This is 
+because `Ord` orders data constructors from left to right by default.
