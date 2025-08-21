@@ -166,3 +166,15 @@ Output: [7,10,13,16]
 `deriving` allows you to automatically generate class instances, such as `Read` and `Show`. The standard behavior for 
 `Read`, `Show`, and `Eq` are generally what you want, but `Ord` might require some manual implementation. This is 
 because `Ord` orders data constructors from left to right by default.
+
+---
+
+Design patterns for typed functional programming:
+You can reuse standard types by "boxing" them.
+```haskell
+data Plate = Plate String
+  deriving (Show, Eq)
+```
+
+This makes the following code easier to work with:
+
