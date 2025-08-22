@@ -177,4 +177,9 @@ data Plate = Plate String
 ```
 
 This makes the following code easier to work with:
-
+```haskell
+-- Function with potentially confusing inputs
+registerCar :: String -> String -> CarRegistry -> CarRegistry
+-- becomes...
+registerCar :: String -> Plate -> CarRegistry -> CarRegistry
+```
