@@ -183,3 +183,14 @@ registerCar :: String -> String -> CarRegistry -> CarRegistry
 -- becomes...
 registerCar :: String -> Plate -> CarRegistry -> CarRegistry
 ```
+
+---
+
+Embedded Domain-Specific Language (EDSL): Uses algebraic data types to represent expressions of the language. The ADTs are often recursive.
+```haskell
+data Discount = DiscountPercent Int         -- A percentage discount
+              | DiscountConstant Int        -- A constant discount
+              | MinimumPrice Int            -- Set a minimum price
+              | ForCustomer String Discount -- Discounts can be conditional
+              | Many [Discount]             -- Apply a number of discounts in a row
+```
